@@ -37,7 +37,7 @@ endfunction ()
 function (vcpkg_bootstrap)
     find_program(AUTO_VCPKG_EXECUTABLE vcpkg PATHS ${AUTO_VCPKG_ROOT})
     if (NOT AUTO_VCPKG_EXECUTABLE)
-        execute_process(COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_LIST_DIR}/CMake/vcpkgBootstrap.cmake" "${AUTO_VCPKG_ROOT}")
+        execute_process(COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_FUNCTION_LIST_DIR}/vcpkgBootstrap.cmake" "${AUTO_VCPKG_ROOT}")
         execute_process(COMMAND ${CMAKE_COMMAND} -P "${AUTO_VCPKG_ROOT}/vcpkgBootstrap.cmake"
             WORKING_DIRECTORY ${AUTO_VCPKG_ROOT})
     endif ()
@@ -69,7 +69,7 @@ function (vcpkg_configure)
     find_program(AUTO_VCPKG_EXECUTABLE
             vcpkg PATHS ${AUTO_VCPKG_ROOT})
     if (NOT AUTO_VCPKG_EXECUTABLE)
-        message(FATAL_ERROR "Cannot find vcpkg executable")
+        message(FATAL_ERROR "Cannot find vcpkg executable in ${AUTO_VCPKG_ROOT}")
     endif ()
     mark_as_advanced(AUTO_VCPKG_EXECUTABLE)
     set(CMAKE_TOOLCHAIN_FILE
