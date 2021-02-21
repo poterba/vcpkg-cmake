@@ -1,5 +1,5 @@
 # This file is subject to the terms and conditions defined in
-# file 'LICENSE.txt', which is part of this source code package.
+# file 'LICENSE', which is part of this source code package.
 
 set(AUTO_VCPKG_GIT_REPOSITORY "https://github.com/Microsoft/vcpkg.git")
 
